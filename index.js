@@ -14,12 +14,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api/movie', router);
 
-app.get('/', (req, res) => {
-    res.json({
-        messsage: 'hello'
-    })
-});
-
 
 app.listen(PORT, async () => {
     await connectToMongoDB();

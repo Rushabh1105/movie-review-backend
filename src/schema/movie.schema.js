@@ -21,6 +21,14 @@ const movieSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    director: {
+        type: String,
+        required: true,
+    },
+    actors: {
+        type: String,
+        required: true,
+    },
     status: {
         type: String,
         enum: ['watched', 'unwatched'],

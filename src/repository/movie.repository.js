@@ -46,12 +46,18 @@ const getAllMovies = async() => {
 }
 
 
-const updateStatus = async(id, data) => {
+const updateStatus = async(id) => {
     try {
         const movie = await getMovie(id);
-        movie.status = data;
-        await movie.save();
-        return movie;
+        let sts;
+        if(movie.status == 'unwatched'){
+            sts = 'watched';
+        }else{
+            sts = 'unwatched'
+        }
+        console.log(sts);
+        const response = await movieModel.findByIdAndUpdate(id, {status: sts});
+        return response;
     } catch (error) {
         throw error;
     }
