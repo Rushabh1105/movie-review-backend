@@ -68,7 +68,13 @@ const addMovieReview = async(id, data) => {
         if(!data.user || !data.rating){
             throw new Error('User and rating is required');
         }
-       const response = await addReview(id, data);
+
+        const reviewData = {
+            user: data.user,
+            rating: data.rating,
+            review: data.review
+        }
+       const response = await addReview(id, reviewData);
        return response; 
     } catch (error) {
         
